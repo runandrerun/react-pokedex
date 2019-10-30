@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import PokeCard from '../components/PokeCard';
-import { pokeClasses } from '../_assets/data/pokeClasses';
 import { fetchPokemon } from '../adapters';
 import '../styles/PokeList.css';
 
 export default class PokeListContainer extends Component {
-  // const pokeCards = pokeClasses.map(pokemon => {
-  //   return <PokeCard key={pokemon.id} pokemon={pokemon} />
-  // });
 
   state = {
     pokemon: null,
@@ -44,7 +40,6 @@ export default class PokeListContainer extends Component {
             </div>
     } else {
       return <div/>
-
     }
   }
 }
