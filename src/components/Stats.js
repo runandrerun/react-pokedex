@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StatChart from './StatChart';
+import ElementChip from './ElementChip';
 import { fetchUniqPokemon } from '../adapters';
 import '../styles/Stats.css';
 
@@ -49,7 +50,7 @@ export default class Stats extends Component {
   buildTypes = () => {
     if (this.state.types) {
       return this.state.types.map(pokeType => {
-        return <li key={pokeType.type.name} className="list-group-item">{pokeType.type.name}</li>
+        return <li key={pokeType.type.name} className="list-group-item"><ElementChip element={pokeType.type.name}/></li>
       })
     };
   };
