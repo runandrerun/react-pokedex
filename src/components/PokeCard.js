@@ -30,7 +30,7 @@ export default class PokeCard extends Component {
     return (
               <div className="col-md-3 poke-card">
                 <div className="card">
-                  {/*<img src={require(`../_assets/sprites/${id}.png`)} className="card-img-top" alt={pokemon.name} />*/}
+                  <img src={require(`../_assets/sprites/${id}.png`)} className="card-img-top" alt={pokemon.name} />
                   <div className="card-body">
                     <h5 className="card-title">{pokeName}</h5>
                   </div>
