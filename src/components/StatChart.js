@@ -33,7 +33,7 @@ export default class StatChart extends Component {
         }
       ]
     };
-    console.log("Inside chart", this.props)
+
     return (
       <div>
         <Polar ref="chart" data={data} />
@@ -43,6 +43,5 @@ export default class StatChart extends Component {
 
   componentDidMount() {
     const { datasets } = this.refs.chart.chartInstance.data
-    console.log(datasets[0].data);
   }
 }

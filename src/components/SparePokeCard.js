@@ -78,7 +78,24 @@ export default class PokeCard extends Component {
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item">
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target={`#${pokemon.name}`} onClick={(e) => this.handleClick(e)}>View Stats</button>
+                        {/*<li className="list-group-item">
+                          <button type="button" className="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
 
+                          <div className="modal fade bd-example-modal-sm" tabIndex="1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                            <div className="modal-dialog modal-sm">
+                              <div className="modal-content">
+                                <div className="modal-header">
+                                  Pokemon Moves
+                                </div>
+                                <div className="modal-body">
+                                  <ul className="list-group">
+                                    {this.state.moves ? this.buildMoves() : null}
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>*/}
                         <div id={pokemon.name} className="modal fade bd-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby={pokemon.name} aria-hidden="true">
                           <div className="modal-dialog modal-lg">
                             <div className="modal-content">

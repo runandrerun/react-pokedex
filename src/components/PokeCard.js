@@ -19,14 +19,20 @@ export default class PokeCard extends Component {
     return <Stats endPoint={this.props.pokemon.url}/>
   };
 
+  upperName = () => {
+    let pokeName = this.props.pokemon.name;
+    return pokeName.charAt(0).toUpperCase() + pokeName.slice(1);
+  }
+
   render() {
     const { id, pokemon } = this.props;
+    const pokeName = this.upperName();
     return (
               <div className="col-md-3 poke-card">
                 <div className="card">
-                  {/*<img src={require(`../_assets/sprites/${id}.png`)} className="card-img-top" alt={pokemon.name} />*/}
+                  <img src={require(`../_assets/sprites/${id}.png`)} className="card-img-top" alt={pokemon.name} />
                   <div className="card-body">
-                    <h5 className="card-title">{pokemon.name}</h5>
+                    <h5 className="card-title">{pokeName}</h5>
                   </div>
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item">
@@ -36,7 +42,7 @@ export default class PokeCard extends Component {
                           <div className="modal-dialog modal-lg">
                             <div className="modal-content">
                               <div className="modal-header">
-                                <h5 className="modal-title">{`${pokemon.name}'s stats`}</h5>
+                                <h5 className="modal-title">{`${pokeName}'s Stats`}</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={(e) => this.handleClick(e)}>
                                   <span aria-hidden="true">&times;</span>
                                 </button>

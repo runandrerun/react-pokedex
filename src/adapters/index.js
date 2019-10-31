@@ -1,7 +1,7 @@
 export const fetchPokemon = async () => {
-  const response = await fetch('http://pokeapi.co/api/v2/pokemon?limit=11');
+  const response = await fetch('http://pokeapi.co/api/v2/pokemon?limit=151');
   const body = await response.json();
-  console.log(body)
+  
   if (response.status !== 200) {
     throw Error(body.message);
   }
@@ -11,7 +11,7 @@ export const fetchPokemon = async () => {
 export const fetchUniqPokemon = async (url) => {
   const response = await fetch(url);
   const body = await response.json();
-  console.log(body)
+
   if (response.status !== 200) {
     throw Error(body.message);
   }

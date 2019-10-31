@@ -9,9 +9,10 @@ export default class Stats extends Component {
     height: null,
     weight: null,
     types: null,
+    sprites: null,
     fetched: false,
     loading: false,
-  }
+  };
 
   componentWillMount() {
     this.setState({
@@ -19,12 +20,12 @@ export default class Stats extends Component {
     });
     return fetchUniqPokemon(this.props.endPoint)
     .then(res => {
-      console.log("inside setup", res)
       return this.setState({
         stats: res.stats,
         height: res.height,
         weight: res.weight,
         types: res.types,
+        sprites: res.sprites,
         fetched: true,
         loading: true,
       })
@@ -32,7 +33,6 @@ export default class Stats extends Component {
   };
 
   buildStats = () => {
-    console.log("Inside buildStats", this.state.stats)
     let baseStats = [];
     let statNames = [];
 
@@ -49,10 +49,21 @@ export default class Stats extends Component {
   buildTypes = () => {
     if (this.state.types) {
       return this.state.types.map(pokeType => {
-        return <li className="list-group-item">{pokeType.type.name}</li>
+        return <li key={pokeType.type.name} className="list-group-item">{pokeType.type.name}</li>
       })
-    }
-  }
+    };
+  };
+
+  buildSprites = () => {
+    if (this.state.sprites) {
+      return (
+        <div className="center-sprites">
+          <img src={this.state.sprites.front_default} alt="Front View"/>
+          <img src={this.state.sprites.back_default} alt="Back View"/>
+        </div>
+      )
+    };
+  };
 
   render() {
     const { fetched, loading } = this.state;
@@ -60,11 +71,13 @@ export default class Stats extends Component {
     if (fetched) {
       return (
           <div>
+            {this.state.sprites ? this.buildSprites() : null}
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">Height: {this.state.height}</li>
-              <li className="list-group-item">Weight: {this.state.weight}lbs</li>
-              <li className="list-group-item">{this.state.types.length > 1 ? `<b>Pokemon Types:</b>` : `<b>Pokemon Type:</b>`} <ul>{this.state.types ? this.buildTypes() : null}</ul></li>
+              <li className="list-group-item"><b>Height:</b> {this.state.height}</li>
+              <li className="list-group-item"><b>Weight:</b> {this.state.weight} lbs</li>
+              <li className="list-group-item">{this.state.types.length > 1 ? <b>Pokemon Types</b> : <b>Pokemon Type</b>}: <ul className="list-group">{this.state.types ? this.buildTypes() : null}</ul></li>
             </ul>
+            <hr/>
             {this.state.stats ? this.buildStats() : "Loading"}
           </div>
       )
