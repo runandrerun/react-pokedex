@@ -15,7 +15,7 @@ export default class StatChart extends Component {
           fill: false,
           lineTension: 0.1,
           backgroundColor: ["rgba(240, 96, 97, 0.5)", "rgba(5, 155, 255, 0.5)", "rgba(255, 206, 86, 0.5)", "rgba(34, 139, 34, 0.5)", "rgba(127, 219, 255, 0.5)", "rgba(177, 13, 201, 0.5)"],
-          borderColor: ["rgba(240, 96, 97, 0.8)", "rgba(5, 155, 255, 0.8)", "rgba(255, 206, 86, 0.8)", "rgba(34, 139, 34, 0.8)", "rgba(127, 219, 255, 0.8)", "rgba(177, 13, 201, 0.8)"],
+          borderColor: ["rgba(240, 96, 97, 0)", "rgba(5, 155, 255, 0)", "rgba(255, 206, 86, 0)", "rgba(34, 139, 34, 0)", "rgba(127, 219, 255, 0)", "rgba(177, 13, 201, 0)"],
           borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,

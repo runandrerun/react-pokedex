@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PokeListContainer from '../containers/PokeListContainer';
+import '../styles/App.css';
 
-export default class App extends Component {
-  render() {
+const App = () => {
     return (
-      <div>
+      <div className="pokedex-container">
        <PokeListContainer />
       </div>
     )
-  }
 };
+
+export default App;

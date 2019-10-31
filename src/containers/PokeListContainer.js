@@ -35,9 +35,11 @@ export default class PokeListContainer extends Component {
                 </div>
               </div>
     } else if (loading && !fetched) {
-      return <div className="spinner-border text-primary" role="status">
-              <span className="sr-only">Loading...</span>
-            </div>
+      return  <div className="container loader">
+                <div className="spinner-border text-primary" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+              </div>
     } else {
       return <div/>
     }
