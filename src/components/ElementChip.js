@@ -24,7 +24,7 @@ const elementColors = {
 
 const ElementChip = ({element}) => {
   return (
-    <span className="badge badge-pill" style={{backgroundColor:`${elementColors[element]}`,color:'#fff'}}>
+    <span className="badge badge-pill" style={{backgroundColor:`${elementColors[element]}`,color:'#fff',marginRight:'10px'}}>
       {element}
     </span>
   );

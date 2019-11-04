@@ -1,11 +1,13 @@
 import React from 'react';
+import NavBar from './NavBar';
 import PokeListContainer from '../containers/PokeListContainer';
 import '../styles/App.css';
 
 const App = () => {
     return (
-      <div className="pokedex-container">
-       <PokeListContainer />
+      <div>
+        <NavBar />
+        <PokeListContainer />
       </div>
     )
 };

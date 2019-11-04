@@ -1,0 +1,20 @@
+.navbar-custom {
+  background-color: #FF6F61;
+  /* background-color: #FAFAFA; */
+  -webkit-box-shadow: 3px 3px 3px #DCDCDC;
+    -moz-box-shadow:    3px 3px 3px #DCDCDC;
+    box-shadow:         3px 3px 3px #DCDCDC;
+    z-index:999;
+}
+
+.navbar-brand-custom {
+  color: #fff!important;
+}
+
+.brand-text-buffer {
+  margin-left: 5px;
+}
+
+.menu-buffer {
+  margin-left: auto;
+}

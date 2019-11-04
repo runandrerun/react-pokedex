@@ -50,7 +50,7 @@ export default class Stats extends Component {
   buildTypes = () => {
     if (this.state.types) {
       return this.state.types.map(pokeType => {
-        return <li key={pokeType.type.name} className="list-group-item"><ElementChip element={pokeType.type.name}/></li>
+        return <ElementChip key={pokeType.type.name} element={pokeType.type.name}/>;
       })
     };
   };
@@ -76,7 +76,7 @@ export default class Stats extends Component {
             <ul className="list-group list-group-flush">
               <li className="list-group-item"><b>Height:</b> {this.state.height}</li>
               <li className="list-group-item"><b>Weight:</b> {this.state.weight} lbs</li>
-              <li className="list-group-item">{this.state.types.length > 1 ? <b>Pokemon Types</b> : <b>Pokemon Type</b>}: <ul className="list-group">{this.state.types ? this.buildTypes() : null}</ul></li>
+              <li className="list-group-item">{this.state.types.length > 1 ? <b>Pokemon Types</b> : <b>Pokemon Type</b>}: <ul className="list-group"><div>{this.state.types ? this.buildTypes() : null}</div></ul></li>
             </ul>
             <hr/>
             {this.state.stats ? this.buildStats() : "Loading"}

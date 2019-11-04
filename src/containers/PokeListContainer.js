@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PokeCard from '../components/PokeCard';
+import Search from '../components/Search';
 import { fetchPokemon } from '../adapters';
 import '../styles/PokeList.css';
 
@@ -30,6 +31,9 @@ export default class PokeListContainer extends Component {
 
     if (fetched) {
       return  <div className="container">
+                <div className="row">
+                    <Search />
+                </div>
                 <div className="row">
                   {this.state.pokemon.map((pokemon,index)=><PokeCard key={pokemon.name} id={index+1} pokemon={pokemon}/>)}
                 </div>
