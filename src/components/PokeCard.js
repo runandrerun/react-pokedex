@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Image from './Image';
 import Stats from './Stats';
 import '../styles/PokeCard.css';
 
@@ -6,6 +7,21 @@ export default class PokeCard extends Component {
 
   state = {
     isOpen: false,
+    pokemon: null,
+  };
+
+  componentDidMount() {
+    return this.setState({
+      pokemon: this.props.pokemon
+    })
+  };
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.pokemon !== this.props.pokemon) {
+      return this.setState({
+        pokemon: newProps.pokemon
+      })
+    }
   };
 
   handleClick = (e) => {
@@ -25,12 +41,13 @@ export default class PokeCard extends Component {
   }
 
   render() {
-    const { id, pokemon } = this.props;
+    const { pokemon } = this.props;
+    const id = parseInt(pokemon.url.split('/')[6]);
     const pokeName = this.upperName();
     return (
               <div className="col-md-3 poke-card">
                 <div className="card">
-                  <img src={require(`../_assets/sprites/${id}.png`)} className="card-img-top" alt={pokemon.name} />
+                  {id ? <img src={require(`../_assets/sprites/${id}.png`)} className="card-img-top" alt={pokemon.name} /> : null}
                   <div className="card-body">
                     <h5 className="card-title">{pokeName}</h5>
                   </div>

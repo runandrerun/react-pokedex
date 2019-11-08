@@ -14,16 +14,16 @@ const NavBar = () => {
 
                   </li>
                   <li className="nav-item">
-                      <a className="nav-link" href="https://runandrerun.github.io/" target="_blank">Creator</a>
+                      <a className="nav-link" href="https://runandrerun.github.io/" target="_blank" rel="noopener noreferrer">Creator</a>
                   </li>
                   <li className="nav-item my-auto">
                       <a className="nav-link navbar-brand mx-0 d-none d-md-inline" href=""><img src={Pokeball} width="30" height="30" alt="Pokeball" /></a>
                   </li>
                   <li className="nav-item">
-                      <a className="nav-link" href="https://www.linkedin.com/in/andre-santiago-79724467/" target="_blank">LinkedIn</a>
+                      <a className="nav-link" href="https://www.linkedin.com/in/andre-santiago-79724467/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                   </li>
                   <li className="nav-item">
-                      <a className="nav-link" href="https://github.com/runandrerun" target="_blank">Github</a>
+                      <a className="nav-link" href="https://github.com/runandrerun" target="_blank" rel="noopener noreferrer">Github</a>
                   </li>
               </ul>
           </div>
@@ -44,10 +44,10 @@ const NavBar = () => {
               </div>
               <div className="modal-body">
               <ul className="list-group list-group-flush">
-                <li className="list-group-item"><a href="https://reactjs.org/" target="_blank">React <span className="badge badge-primary badge-pill">Frontend Framework</span></a></li>
-                <li className="list-group-item"><a href="https://www.chartjs.org/" target="_blank">Chartjs <span className="badge badge-success badge-pill">Data Visualization</span></a></li>
-                <li className="list-group-item"><a href="https://getbootstrap.com/" target="_blank">Bootstrap 4 <span className="badge badge-info badge-pill">CSS Styling</span></a></li>
-                <li className="list-group-item"><a href="https://pokeapi.co/" target="_blank">PokeAPI <span className="badge badge-danger badge-pill">API Endpoint</span></a></li>
+                <li className="list-group-item"><a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React <span className="badge badge-primary badge-pill">Frontend Framework</span></a></li>
+                <li className="list-group-item"><a href="https://www.chartjs.org/" target="_blank" rel="noopener noreferrer">Chartjs <span className="badge badge-success badge-pill">Data Visualization</span></a></li>
+                <li className="list-group-item"><a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap 4 <span className="badge badge-info badge-pill">CSS Styling</span></a></li>
+                <li className="list-group-item"><a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer">PokeAPI <span className="badge badge-danger badge-pill">API Endpoint</span></a></li>
               </ul>
               </div>
             </div>

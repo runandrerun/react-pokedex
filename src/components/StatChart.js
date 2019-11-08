@@ -39,9 +39,5 @@ export default class StatChart extends Component {
         <Polar ref="chart" data={data} />
       </div>
     );
-  }
-
-  componentDidMount() {
-    const { datasets } = this.refs.chart.chartInstance.data
-  }
-}
+  };
+};
