@@ -31,10 +31,8 @@ export default class PokeListContainer extends Component {
   }
 
   findPokemon = (pokemonReq) => {
-    console.log(pokemonReq)
-    if (pokemonReq !== "" && this.state.pokemon.length <= 1) {
+    if (pokemonReq !== "" && this.state.pokemon.length <= 5) {
       if (this.secondaryFinder(pokemonReq) == false) {
-        console.log("HIT")
         this.setState({
           isFound: false
         });
@@ -47,7 +45,6 @@ export default class PokeListContainer extends Component {
       };
     } else if (pokemonReq !== "") {
       if (this.finder(pokemonReq) == false) {
-        console.log("HIT")
         this.setState({
           isFound: false
         });
@@ -68,15 +65,25 @@ export default class PokeListContainer extends Component {
 
   finder = (pokemonReq) => {
     return this.state.pokemon.filter(pokemon => {
-      // console.log(pokemonReq.toLowerCase() === pokemon.name.toLowerCase())
-      return pokemonReq.toLowerCase() === pokemon.name.toLowerCase();
+      let length = pokemonReq.length;
+      let currPokeSlice = pokemon.name.slice(0, length);
+      return pokemonReq.toLowerCase() === currPokeSlice.toLowerCase();
     });
   };
 
   secondaryFinder = (pokemonReq) => {
     return this.state.pokemonCopy.filter(pokemon => {
-      // console.log(pokemonReq.toLowerCase() === pokemon.name.toLowerCase())
-      return pokemonReq.toLowerCase() === pokemon.name.toLowerCase();
+      let length = pokemonReq.length;
+      let currPokeSlice = pokemon.name.slice(0, length);
+      return pokemonReq.toLowerCase() === currPokeSlice.toLowerCase();
+    });
+  };
+
+  resetList = (e) => {
+    e.preventDefault();
+    this.setState({
+      pokemon: this.state.pokemonCopy,
+      isFound: true
     });
   };
 
@@ -86,7 +93,7 @@ export default class PokeListContainer extends Component {
       return  <div className="container">
                 <div className="row">
                     <Search findPokemon={this.findPokemon} />
-                  {this.state.isFound ? null : <div className="col-md-12">Unable to find this Pokemon! Please try again.</div>}
+                  {this.state.isFound ? null : <div className="col-md-12 search-failure">Unable to find this Pokemon! Please try again, or <span className="reset-toggle" onClick={(e) => this.resetList(e)}>click here</span> to reset.</div>}
                 </div>
                 <hr/>
                 <div className="row">

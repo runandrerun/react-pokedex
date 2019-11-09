@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Image from './Image';
 import Stats from './Stats';
 import '../styles/PokeCard.css';
 

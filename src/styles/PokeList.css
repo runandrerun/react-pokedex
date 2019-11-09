@@ -18,3 +18,16 @@
   align-items: center;
   justify-content: center;
 }
+
+.search-failure {
+  color: #DC3545;
+}
+
+.search-failure .reset-toggle {
+  font-weight: bold;
+  transition: font-weight 0.5s;
+}
+
+.search-failure .reset-toggle:hover {
+  font-weight: 800;
+}
