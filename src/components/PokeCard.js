@@ -44,9 +44,11 @@ export default class PokeCard extends Component {
     const id = parseInt(pokemon.url.split('/')[6]);
     const pokeName = this.upperName();
     return (
-              <div className="col-md-3 poke-card">
-                <div className="card">
-                  {id ? <img src={require(`../_assets/sprites/${id}.png`)} className="card-img-top" alt={pokemon.name} /> : null}
+              <div className="col-md-3">
+                <div className="card poke-card">
+                  <div className="img-container">
+                    {id ? <img src={require(`../_assets/pokemon/main-sprites/crystal/${id}.png`)} className="card-img-top" alt={pokemon.name} /> : null}
+                  </div>
                   <div className="card-body">
                     <h5 className="card-title">{pokeName}</h5>
                   </div>

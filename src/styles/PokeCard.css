@@ -6,6 +6,24 @@
   background-color: #fff;
   background-repeat: no-repeat;
   border: none;
-  border-radius: 5px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16); */
+  border-radius: 5px; */
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.5s;
+}
+
+.poke-card:hover {
+  box-shadow: 6px 6px 6px 0 rgba(0, 0, 0, 0.6);
+}
+
+.poke-card:active {
+  box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.6);
+}
+
+.img-container {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  /* margin: auto; */
+  padding: 20px;
+  /* width: 100px; */
 }
