@@ -31,25 +31,26 @@ export default class PokeListContainer extends Component {
   }
 
   findPokemon = (pokemonReq) => {
-    if (pokemonReq !== "" && this.state.pokemon.length <= 5) {
+    // if (pokemonReq !== "" && this.state.pokemon.length < 5) {
+    //   if (this.secondaryFinder(pokemonReq) == false) {
+    //     this.setState({
+    //       isFound: false
+    //     });
+    //   } else {
+    //     let foundPokemon = this.secondaryFinder(pokemonReq);
+    //     this.setState({
+    //       pokemon: foundPokemon,
+    //       isFound: true,
+    //     });
+    //   };
+    // } else
+    if (pokemonReq !== "") {
       if (this.secondaryFinder(pokemonReq) == false) {
         this.setState({
           isFound: false
         });
       } else {
         let foundPokemon = this.secondaryFinder(pokemonReq);
-        this.setState({
-          pokemon: foundPokemon,
-          isFound: true,
-        });
-      };
-    } else if (pokemonReq !== "") {
-      if (this.finder(pokemonReq) == false) {
-        this.setState({
-          isFound: false
-        });
-      } else {
-        let foundPokemon = this.finder(pokemonReq);
         this.setState({
           pokemon: foundPokemon,
           isFound: true,
