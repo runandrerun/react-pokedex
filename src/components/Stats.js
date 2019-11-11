@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import StatChart from './StatChart';
+import StrengthContainer from '../containers/StrengthContainer';
+import WeaknessContainer from '../containers/WeaknessContainer';
 import ElementChip from './ElementChip';
 import { fetchUniqPokemon } from '../adapters';
 import '../styles/Stats.css';
@@ -55,6 +57,18 @@ export default class Stats extends Component {
     };
   };
 
+  buildStrengthContainer = () => {
+    if (this.state.types) {
+      return <StrengthContainer types={this.state.types} />;
+    };
+  };
+
+  buildWeaknessContainer = () => {
+    if (this.state.types) {
+      return <WeaknessContainer types={this.state.types} />;
+    };
+  };
+
   buildSprites = () => {
     if (this.state.sprites) {
       return (
@@ -77,6 +91,8 @@ export default class Stats extends Component {
               <li className="list-group-item"><b>Height:</b> {this.state.height}</li>
               <li className="list-group-item"><b>Weight:</b> {this.state.weight} lbs</li>
               <li className="list-group-item">{this.state.types.length > 1 ? <b>Pokemon Types</b> : <b>Pokemon Type</b>}: <ul className="list-group"><div>{this.state.types ? this.buildTypes() : null}</div></ul></li>
+              <li className="list-group-item"><b>Strengths:</b> {this.state ? this.buildStrengthContainer() : null}</li>
+              <li className="list-group-item"><b>Weaknesses:</b> {this.state ? this.buildWeaknessContainer() : null}</li>
             </ul>
             <hr/>
             {this.state.stats ? this.buildStats() : "Loading"}

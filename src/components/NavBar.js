@@ -28,6 +28,12 @@ const NavBar = () => {
               </ul>
           </div>
           <div className="menu-buffer">
+          {/*<button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsingNavbar2" aria-expanded="false" aria-controls="navbar">
+            <span className="sr-only">Toggle navigation</span>
+            <span className="icon-bar top-bar"></span>
+            <span className="icon-bar middle-bar"></span>
+            <span className="icon-bar bottom-bar"></span>
+          </button>*/}
             <button className="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
                 <span className="navbar-toggler-icon"></span>
             </button>

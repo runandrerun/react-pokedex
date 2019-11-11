@@ -20,6 +20,7 @@ const elementColors = {
   ghost: '#614B82',
   dark: '#5B483B',
   bird: '#F8F9FA',
+  none: 'grey'
 }
 
 const ElementChip = ({element}) => {

@@ -18,3 +18,46 @@
 .menu-buffer {
   margin-left: auto;
 }
+
+.navbar-toggle {
+  border: none;
+  color: #000;
+  background-color: #000;
+  background: #000;
+  /* background: transparent !important; */
+}
+
+.icon-bar {
+  width: 22px;
+  transition: all 0.2s;
+}
+
+.top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+
+.middle-bar {
+  opacity: 1;
+}
+
+.bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+
+.navbar-toggle:hover {
+  background: transparent!important;
+}
+
+.navbar-toggle.collapsed .top-bar {
+  transform: rotate(0);
+}
+
+.navbar-toggle.collapsed .middle-bar {
+  opacity: 1;
+}
+
+.navbar-toggle.collapsed .bottom-bar {
+  transform: rotate(0);
+}
