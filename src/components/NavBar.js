@@ -4,7 +4,7 @@ import { HamburgerSpin } from 'react-animated-burgers';
 import '../styles/NavBar.css';
 
 export default class NavBar extends Component {
-  
+
   state = {
     isActive: false
   };
@@ -25,7 +25,6 @@ export default class NavBar extends Component {
                 <ul className="navbar-nav mx-auto text-md-center text-left">
                     <li className="nav-item">
                         <a className="nav-link" data-toggle="modal" data-target=".tech-modal">Tech</a>
-
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="https://runandrerun.github.io/" target="_blank" rel="noopener noreferrer">Creator</a>

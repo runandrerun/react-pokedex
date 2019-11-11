@@ -7,6 +7,18 @@
     z-index:999;
 }
 
+.navbar-toggler:hover {
+  border: none!important;
+}
+
+.navbar-toggler:focus {
+  border: none!important;
+}
+
+.navbar-toggler:active {
+  border: none!important;
+}
+
 .tech-link {
   text-decoration: none!important;
   color: #212529!important;
