@@ -7,6 +7,33 @@
     z-index:999;
 }
 
+.tech-link {
+  text-decoration: none!important;
+  color: #212529!important;
+  transition: font-weight 0.5s, border-bottom 0.5s;
+}
+
+.tech-link:hover {
+  font-weight: bold;
+  border-bottom: 1px solid #212529;
+}
+
+.tech-badge {
+  transition: box-shadow 0.5s;
+}
+
+.tech-badge:hover {
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.tech-badge:active {
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.6);
+}
+
+.toggler-adj {
+  border: none;
+}
+
 .navbar-brand-custom {
   color: #fff!important;
 }
@@ -38,7 +65,7 @@
 }
 
 .middle-bar {
-  opacity: 1;
+  opacity: 0;
 }
 
 .bottom-bar {

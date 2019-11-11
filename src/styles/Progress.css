@@ -1,0 +1,7 @@
+.progress-style {
+  height: 10px;
+}
+
+.progress-style div {
+  background-color: #FF6F61!important;
+}

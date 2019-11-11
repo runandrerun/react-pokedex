@@ -1,0 +1,11 @@
+.element {
+  transition: box-shadow 0.5s;
+}
+
+.element:hover {
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.element:active {
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.6);
+}

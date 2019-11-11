@@ -7,9 +7,3 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
-
-describe('Visit Host', function() {
-  it('Visits the Pokedex', function() {
-    cy.visit('https://localhost:3001')
-  })
-})

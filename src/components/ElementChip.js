@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/ElementChip.css';
 
 const elementColors = {
   grass: '#2DCD45',
@@ -25,7 +26,7 @@ const elementColors = {
 
 const ElementChip = ({element}) => {
   return (
-    <span className="badge badge-pill" style={{backgroundColor:`${elementColors[element]}`,color:'#fff',marginRight:'10px'}}>
+    <span className="badge badge-pill element" style={{backgroundColor:`${elementColors[element]}`,color:'#fff',marginRight:'10px'}}>
       {element}
     </span>
   );
