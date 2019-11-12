@@ -47,7 +47,8 @@ export default class PokeCard extends Component {
               <div className="col-md-3">
                 <div className="card poke-card">
                   <div className="img-container">
-                    {id ? <img src={require(`../_assets/pokemon/ruby-sapphire/${id}.png`)} className="card-img-top" alt={pokemon.name} /> : null}
+                    {/*{id ? <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`} className="card-img-top" alt={pokemon.name} /> : null}*/}
+                    {id ? <img src={require(`../_assets/pokemon/data/${id}.png`)} className="card-img-top" alt={pokemon.name} /> : null}
                   </div>
                   <div className="card-body">
                     <h5 className="card-title">{pokeName}</h5>
