@@ -74,7 +74,7 @@ export default class Stats extends Component {
       return (
         <div className="center-sprites">
           <img src={this.state.sprites.front_default} alt="Front View"/>
-          <img src={this.state.sprites.back_default} alt="Back View"/>
+          {this.state.sprites.back_default ? <img src={this.state.sprites.back_default} alt="Back View"/> : null}
         </div>
       )
     };
