@@ -10,6 +10,7 @@ export default class PokeListContainer extends Component {
     pokemon: null,
     pokemonCopy: null,
     foundPokemon: null,
+    suggestions: null,
     isFound: true,
     fetched: false,
     loading: false,
@@ -21,6 +22,7 @@ export default class PokeListContainer extends Component {
     });
     return fetchPokemon()
     .then(res => {
+      this.createSuggestions(res.results);
       return this.setState({
         pokemon: res.results,
         pokemonCopy: res.results,
@@ -28,7 +30,7 @@ export default class PokeListContainer extends Component {
         loading: true,
       });
     });
-  }
+  };
 
   findPokemon = (pokemonReq) => {
     if (pokemonReq !== "") {
@@ -52,19 +54,23 @@ export default class PokeListContainer extends Component {
     };
 
   finder = (pokemonReq) => {
-    return this.state.pokemon.filter(pokemon => {
-      let length = pokemonReq.length;
-      let currPokeSlice = pokemon.name.slice(0, length);
-      return pokemonReq.toLowerCase() === currPokeSlice.toLowerCase();
-    });
+    if (pokemonReq) {
+      return this.state.pokemon.filter(pokemon => {
+        let length = pokemonReq.length;
+        let currPokeSlice = pokemon.name.slice(0, length);
+        return pokemonReq.toLowerCase() === currPokeSlice.toLowerCase();
+      });
+    };
   };
 
   secondaryFinder = (pokemonReq) => {
-    return this.state.pokemonCopy.filter(pokemon => {
-      let length = pokemonReq.length;
-      let currPokeSlice = pokemon.name.slice(0, length);
-      return pokemonReq.toLowerCase() === currPokeSlice.toLowerCase();
-    });
+    if (pokemonReq) {
+      return this.state.pokemonCopy.filter(pokemon => {
+        let length = pokemonReq.length;
+        let currPokeSlice = pokemon.name.slice(0, length);
+        return pokemonReq.toLowerCase() === currPokeSlice.toLowerCase();
+      });
+    };
   };
 
   resetList = (e) => {
@@ -75,12 +81,25 @@ export default class PokeListContainer extends Component {
     });
   };
 
+  createSuggestions = (res) => {
+    if (res) {
+      let suggestionsList = [];
+      res.map((pokemon, k) => {
+          return suggestionsList.push(pokemon.name);
+      });
+      return this.setState({
+          suggestions: suggestionsList
+      });
+    };
+  };
+
   render() {
-    const { fetched, loading } = this.state;
+    const { fetched, loading, suggestions} = this.state;
     if (fetched) {
       return  <div className="container">
                 <div className="row">
-                    <Search findPokemon={this.findPokemon} />
+                    <Search findPokemon={this.findPokemon} suggestions={suggestions}/>
+                    {this.createSuggestions()}
                   {this.state.isFound ? null : <div className="col-md-12 search-failure">Unable to find this Pokemon! Please try again, or <span className="reset-toggle" onClick={(e) => this.resetList(e)}>click here</span> to reset.</div>}
                 </div>
                 <hr/>

@@ -15,14 +15,6 @@ export default class PokeCard extends Component {
     })
   };
 
-  // componentWillReceiveProps(newProps) {
-  //   if (newProps.pokemon !== this.props.pokemon) {
-  //     return this.setState({
-  //       pokemon: newProps.pokemon
-  //     })
-  //   }
-  // };
-
   handleClick = (e) => {
     e.preventDefault();
     this.setState({
