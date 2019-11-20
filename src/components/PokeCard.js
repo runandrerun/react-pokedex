@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Stats from './Stats';
+import Moves from '../containers/Moves';
 import '../styles/PokeCard.css';
 
 export default class PokeCard extends Component {
@@ -26,13 +27,17 @@ export default class PokeCard extends Component {
     return <Stats endPoint={this.props.pokemon.url}/>
   };
 
+  buildMovesView = () => {
+    return <Moves endPoint={this.props.pokemon.url}/>
+  };
+
   upperName = () => {
     let pokeName = this.props.pokemon.name;
     return pokeName.charAt(0).toUpperCase() + pokeName.slice(1);
   }
 
   render() {
-    const { pokemon } = this.props;
+    const { buildStatsView, buildMovesView, handleClick, props: { pokemon }, state: { isOpen } } = this;
     const id = parseInt(pokemon.url.split('/')[6]);
     const pokeName = this.upperName();
     return (
@@ -46,24 +51,44 @@ export default class PokeCard extends Component {
                     <h5 className="card-title">{pokeName}</h5>
                   </div>
                     <ul className="list-group list-group-flush">
-                      <li className="list-group-item">
-                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target={`#${pokemon.name}`} onClick={(e) => this.handleClick(e)}>View Stats</button>
+                      <li className="list-group-item btn-align">
+                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target={`#${pokemon.name}-stats`} onClick={(e) => handleClick(e)}>Stats</button>
 
-                        <div id={pokemon.name} className="modal fade bd-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby={pokemon.name} aria-hidden="true">
+                        <div id={`${pokemon.name}-stats`} className="modal fade bd-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby={`${pokemon.name}-stats`} aria-hidden="true">
                           <div className="modal-dialog modal-lg">
                             <div className="modal-content">
                               <div className="modal-header">
                                 <h5 className="modal-title">{`${pokeName}'s Stats`}</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={(e) => this.handleClick(e)}>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={(e) => handleClick(e)}>
                                   <span aria-hidden="true">&times;</span>
                                 </button>
                               </div>
                               <div id={`${pokemon.name}-stat-view`} className="modal-body">
-                                {this.state.isOpen ? this.buildStatsView() : null}
+                                {isOpen ? buildStatsView() : null}
                               </div>
                             </div>
                           </div>
                         </div>
+
+                        <button type="button" className="btn btn-primary btn-margin" data-toggle="modal" data-target={`#${pokemon.name}-moves`} onClick={(e) => handleClick(e)}>Moves</button>
+
+                        <div id={`${pokemon.name}-moves`} className="modal fade bd-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby={`${pokemon.name}-moves`} aria-hidden="true">
+                          <div className="modal-dialog modal-lg">
+                            <div className="modal-content">
+                              <div className="modal-header">
+                                <h5 className="modal-title">{`${pokeName}'s Moves`}</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={(e) => handleClick(e)}>
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div id={`${pokemon.name}-stat-view`} className="modal-body">
+                                {id === 555 || id >= 650 ? null : <img src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.name}.gif`} alt={`${pokemon.name} battle sprite`}/> }
+                                {isOpen ? buildMovesView() : null}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
                       </li>
                     </ul>
                   </div>

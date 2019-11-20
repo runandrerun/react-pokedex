@@ -31,3 +31,6 @@ const ElementChip = ({element}) => {
 };
 
 export default ElementChip;
+
+
+let imgSrc = document.getElementBy

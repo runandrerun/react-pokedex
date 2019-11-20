@@ -27,3 +27,11 @@
   padding: 20px;
   /* width: 100px; */
 }
+
+.btn-align {
+  text-align: center;
+  align-items: center;
+}
+.btn-margin {
+  margin-left: 10px;
+}
