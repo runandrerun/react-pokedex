@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Stats from './Stats';
 import Moves from '../containers/Moves';
+import EvolutionContainer from '../containers/EvolutionContainer';
 import '../styles/PokeCard.css';
 
 export default class PokeCard extends Component {
@@ -24,12 +25,16 @@ export default class PokeCard extends Component {
   };
 
   buildStatsView = () => {
-    return <Stats endPoint={this.props.pokemon.url}/>
+    return <Stats endPoint={this.props.pokemon.url}/>;
   };
 
   buildMovesView = () => {
-    return <Moves endPoint={this.props.pokemon.url}/>
+    return <Moves endPoint={this.props.pokemon.url}/>;
   };
+
+  buildEvolutionChain = (reqPoke) => {
+    return <EvolutionContainer id={reqPoke}/>;
+  }
 
   upperName = () => {
     let pokeName = this.props.pokemon.name;
@@ -37,14 +42,14 @@ export default class PokeCard extends Component {
   }
 
   render() {
-    const { buildStatsView, buildMovesView, handleClick, props: { pokemon }, state: { isOpen } } = this;
+    const { buildStatsView, buildMovesView, buildEvolutionChain, handleClick, props: { pokemon }, state: { isOpen } } = this;
     const id = parseInt(pokemon.url.split('/')[6]);
     const pokeName = this.upperName();
     return (
-              <div className="col-md-3">
+              <div className="col-md-4">
                 <div className="card poke-card">
                   <div className="img-container">
-                    {/*{id ? <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`} className="card-img-top" alt={pokemon.name} /> : null}*/}
+                    {/*id ? <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`} className="card-img-top" alt={pokemon.name} /> : null}*/}
                     {id ? <img src={require(`../_assets/pokemon/data/${id}.png`)} className="card-img-top" alt={pokemon.name} /> : null}
                   </div>
                   <div className="card-body">
@@ -84,6 +89,24 @@ export default class PokeCard extends Component {
                               <div id={`${pokemon.name}-stat-view`} className="modal-body">
                                 {id === 555 || id >= 650 ? null : <img src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.name}.gif`} alt={`${pokemon.name} battle sprite`}/> }
                                 {isOpen ? buildMovesView() : null}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <button type="button" className="btn btn-primary btn-margin" data-toggle="modal" data-target={`#${pokemon.name}-evolution-chain`} onClick={(e) => handleClick(e)}>Evoluton</button>
+
+                        <div id={`${pokemon.name}-evolution-chain`} className="modal fade bd-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby={`${pokemon.name}-evolution-chain`} aria-hidden="true">
+                          <div className="modal-dialog modal-lg">
+                            <div className="modal-content">
+                              <div className="modal-header">
+                                <h5 className="modal-title">{`${pokeName}'s Evolution Chain`}</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={(e) => handleClick(e)}>
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div id={`${pokemon.name}-evolution-chain-view`} className="modal-body">
+                                {buildEvolutionChain(id)}
                               </div>
                             </div>
                           </div>

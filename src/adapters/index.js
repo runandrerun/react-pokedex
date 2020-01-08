@@ -17,3 +17,14 @@ export const fetchUniqPokemon = async (url) => {
   }
   return body;
 }
+
+export const fetchEvolutionChain = async (id) => {
+  const url = `https://pokeapi.co/api/v2/evolution-chain/${id}`;
+  const response = await fetch(url);
+  const body = await response.json();
+
+  if (response.status !== 200) {
+    throw Error(body.message);
+  }
+  return body;
+};

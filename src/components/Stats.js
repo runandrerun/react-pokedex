@@ -36,11 +36,12 @@ export default class Stats extends Component {
   };
 
   buildStats = () => {
+    const { stats } = this.state;
     let baseStats = [];
     let statNames = [];
 
-    if (this.state.stats) {
-      this.state.stats.map(pokeStat => {
+    if (stats) {
+      stats.map(pokeStat => {
         baseStats.push(pokeStat.base_stat);
         statNames.push(pokeStat.stat.name);
       });
@@ -50,16 +51,18 @@ export default class Stats extends Component {
   };
 
   buildTypes = () => {
-    if (this.state.types) {
-      return this.state.types.map(pokeType => {
+    const { types } = this.state;
+    if (types) {
+      return types.map(pokeType => {
         return <ElementChip key={pokeType.type.name} element={pokeType.type.name}/>;
       })
     };
   };
 
   buildStrengthContainer = () => {
-    if (this.state.types) {
-      return <StrengthContainer types={this.state.types} />;
+    const { types } = this.state;
+    if (types) {
+      return <StrengthContainer types={types} />;
     };
   };
 
@@ -70,32 +73,33 @@ export default class Stats extends Component {
   };
 
   buildSprites = () => {
-    if (this.state.sprites) {
+    const { sprites } = this.state;
+    if (sprites) {
       return (
         <div className="center-sprites">
-          <img src={this.state.sprites.front_default} alt="Front View"/>
-          {this.state.sprites.back_default ? <img src={this.state.sprites.back_default} alt="Back View"/> : null}
+          <img src={sprites.front_default} alt="Front View"/>
+          {sprites.back_default ? <img src={sprites.back_default} alt="Back View"/> : null}
         </div>
       )
     };
   };
 
   render() {
-    const { fetched, loading } = this.state;
+    const { buildSprites, buildWeaknessContainer, buildStrengthContainer, state: { fetched, loading, types, height, weight, sprites, stats } } = this;
 
     if (fetched) {
       return (
           <div>
-            {this.state.sprites ? this.buildSprites() : null}
+            {sprites ? buildSprites() : null}
             <ul className="list-group list-group-flush">
-              <li className="list-group-item"><b>Height:</b> {this.state.height}</li>
-              <li className="list-group-item"><b>Weight:</b> {this.state.weight} lbs</li>
-              <li className="list-group-item">{this.state.types.length > 1 ? <b>Pokemon Types</b> : <b>Pokemon Type</b>}: <ul className="list-group"><div>{this.state.types ? this.buildTypes() : null}</div></ul></li>
-              <li className="list-group-item"><b>Strengths:</b> {this.state ? this.buildStrengthContainer() : null}</li>
-              <li className="list-group-item"><b>Weaknesses:</b> {this.state ? this.buildWeaknessContainer() : null}</li>
+              <li className="list-group-item"><b>Height:</b> {height}</li>
+              <li className="list-group-item"><b>Weight:</b> {weight} lbs</li>
+              <li className="list-group-item">{types.length > 1 ? <b>Pokemon Types</b> : <b>Pokemon Type</b>}: <ul className="list-group"><div>{types ? this.buildTypes() : null}</div></ul></li>
+              <li className="list-group-item"><b>Strengths:</b> {this.state ? buildStrengthContainer() : null}</li>
+              <li className="list-group-item"><b>Weaknesses:</b> {this.state ? buildWeaknessContainer() : null}</li>
             </ul>
             <hr/>
-            {this.state.stats ? this.buildStats() : "Loading"}
+            {stats ? this.buildStats() : "Loading"}
           </div>
       )
     } else if (loading && !fetched) {
