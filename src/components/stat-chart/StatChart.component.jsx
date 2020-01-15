@@ -1,10 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Polar } from 'react-chartjs-2';
 
-
-
 export default class StatChart extends Component {
-
 
   render() {
     const data = {

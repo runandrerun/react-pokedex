@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PokeCard from '../components/PokeCard';
-import Search from '../components/Search';
-import { fetchPokemon } from '../adapters';
-import '../styles/PokeList.css';
+import PokeCard from '../../poke-card/PokeCard.component';
+import Search from '../../search/Search.component';
+import { fetchPokemon } from '../../../adapters';
+import './PokeList.styles.css';
 
 export default class PokeListContainer extends Component {
 

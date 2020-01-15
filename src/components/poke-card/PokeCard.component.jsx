@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Stats from './Stats';
-import Moves from '../containers/Moves';
-import EvolutionContainer from '../containers/EvolutionContainer';
-import '../styles/PokeCard.css';
+import Stats from '../stats/Stats.component';
+import Moves from '../moves/Moves.component';
+import EvolutionChart from '../evolution-chart/EvolutionChart.component';
+import './PokeCard.styles.css';
 
 export default class PokeCard extends Component {
 
@@ -33,7 +33,7 @@ export default class PokeCard extends Component {
   };
 
   buildEvolutionChain = (reqPoke) => {
-    return <EvolutionContainer id={reqPoke}/>;
+    return <EvolutionChart id={reqPoke}/>;
   }
 
   upperName = () => {
@@ -50,7 +50,7 @@ export default class PokeCard extends Component {
                 <div className="card poke-card">
                   <div className="img-container">
                     {/*id ? <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`} className="card-img-top" alt={pokemon.name} /> : null}*/}
-                    {id ? <img src={require(`../_assets/pokemon/data/${id}.png`)} className="card-img-top" alt={pokemon.name} /> : null}
+                    {id ? <img src={require(`../../_assets/pokemon/data/${id}.png`)} className="card-img-top" alt={pokemon.name} /> : null}
                   </div>
                   <div className="card-body">
                     <h5 className="card-title">{pokeName}</h5>

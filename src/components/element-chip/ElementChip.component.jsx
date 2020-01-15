@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/ElementChip.css';
+import './ElementChip.styles.css';
 
 const elementColors = {
   grass: '#2DCD45',

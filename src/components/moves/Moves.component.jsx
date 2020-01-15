@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { fetchUniqPokemon } from '../adapters';
-import '../styles/Moves.css';
+import { fetchUniqPokemon } from '../../adapters';
+import './Moves.styles.css';
 
-export default class Stats extends Component {
+export default class Moves extends Component {
   state = {
     moves: [],
     fetched: false,
@@ -35,7 +35,7 @@ export default class Stats extends Component {
 
   render() {
     const { buildMoves, state: { fetched, loading, moves } } = this;
-    
+
     if (fetched) {
       return (
           <div>

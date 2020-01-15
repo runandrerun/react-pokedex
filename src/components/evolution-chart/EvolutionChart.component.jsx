@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { fetchEvolutionChain } from '../adapters';
+import { fetchEvolutionChain } from '../../adapters';
 
-export default class EvolutionContainer extends Component {
+export default class EvolutionChart extends Component {
 
   state = {
     evolutionChain: null,

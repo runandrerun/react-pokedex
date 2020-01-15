@@ -22,7 +22,7 @@ const elementColors = {
   bird: '#F8F9FA',
 }
 
-const ElementChip = ({element}) => {
+const WeaknessChip = ({element}) => {
   return (
     <span className="badge badge-pill" style={{backgroundColor:`${elementColors[element]}`,color:'#fff',marginRight:'10px'}}>
       {element}
@@ -30,7 +30,4 @@ const ElementChip = ({element}) => {
   );
 };
 
-export default ElementChip;
-
-
-let imgSrc = document.getElementBy
+export default WeaknessChip;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Pokeball from '../_assets/img/pokeball.svg';
+import Pokeball from '../../_assets/img/pokeball.svg';
 import { HamburgerSpin } from 'react-animated-burgers';
-import '../styles/NavBar.css';
+import './NavBar.styles.css';
 
 const NavBar = () => {
   const [ isActive, setActive ] = useState(false);

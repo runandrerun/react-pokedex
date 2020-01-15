@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import StatChart from './StatChart';
-import StrengthContainer from '../containers/StrengthContainer';
-import WeaknessContainer from '../containers/WeaknessContainer';
-import ElementChip from './ElementChip';
-import { fetchUniqPokemon } from '../adapters';
-import '../styles/Stats.css';
+import StatChart from '../stat-chart/StatChart.component';
+import StrengthContainer from '../containers/strength-container/StrengthContainer.component';
+import WeaknessContainer from '../containers/weakness-container/WeaknessContainer.component';
+import ElementChip from '../element-chip/ElementChip.component';
+import { fetchUniqPokemon } from '../../adapters';
+import './Stats.styles.css';
 
 export default class Stats extends Component {
   state = {

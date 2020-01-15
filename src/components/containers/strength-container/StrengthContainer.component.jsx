@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ElementChip from '../components/ElementChip';
+import ElementChip from '../../element-chip/ElementChip.component';
 
 export default class StrengthContainer extends Component {
 
