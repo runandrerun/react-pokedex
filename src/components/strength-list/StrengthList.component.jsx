@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ElementChip from '../../element-chip/ElementChip.component';
+import ElementChip from '../element-chip/ElementChip.component';
 
-export default class StrengthContainer extends Component {
+export default class StrengthList extends Component {
 
   strengthFinder = (type) => {
     switch (type) {

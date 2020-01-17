@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PokeCard from '../../poke-card/PokeCard.component';
-import Search from '../../search/Search.component';
-import { fetchPokemon } from '../../../adapters';
+import PokeCard from '../poke-card/PokeCard.component';
+import Search from '../search/Search.component';
+import { fetchPokemon } from '../../adapters';
 import './PokeList.styles.css';
 
-export default class PokeListContainer extends Component {
+export default class PokeList extends Component {
 
   state = {
     pokemon: null,
@@ -104,7 +104,9 @@ export default class PokeListContainer extends Component {
                 </div>
                 <hr/>
                 <div className="row">
-                  {this.state.pokemon.map((pokemon,index)=><PokeCard key={pokemon.name} id={index+1} pokemon={pokemon}/>)}
+                  {this.state.pokemon.map(( pokemon, index ) =>
+                    <PokeCard key={index} id={index+1} pokemon={pokemon}/>
+                  )}
                 </div>
               </div>
     } else if (loading && !fetched) {
