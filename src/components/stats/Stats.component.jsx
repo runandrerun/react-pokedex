@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StatChart from '../stat-chart/StatChart.component';
-import StrengthContainer from '../containers/strength-container/StrengthContainer.component';
-import WeaknessContainer from '../containers/weakness-container/WeaknessContainer.component';
+import StrengthContainer from '../strength-list/StrengthList.component';
+import WeaknessContainer from '../weakness-list/WeaknessList.component';
 import ElementChip from '../element-chip/ElementChip.component';
 import { fetchUniqPokemon } from '../../adapters';
 import './Stats.styles.css';

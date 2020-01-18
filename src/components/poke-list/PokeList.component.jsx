@@ -104,8 +104,8 @@ export default class PokeList extends Component {
                 </div>
                 <hr/>
                 <div className="row">
-                  {this.state.pokemon.map(( pokemon, index ) =>
-                    <PokeCard key={index} id={index+1} pokemon={pokemon}/>
+                  {this.state.pokemon.map(( pokemon, k ) =>
+                    <PokeCard key={k} id={pokemon.id} pokemon={pokemon}/>
                   )}
                 </div>
               </div>
