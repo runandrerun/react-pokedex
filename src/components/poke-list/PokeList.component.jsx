@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import PokeCard from '../poke-card/PokeCard.component';
 import Search from '../search/Search.component';
+import SuggestionsList from '../suggestions-list/SuggestionsList.component';
 import { fetchPokemon } from '../../adapters';
 import './PokeList.styles.css';
 
 export default class PokeList extends Component {
 
   state = {
-    pokemon: null,
+    pokemon: [],
     pokemonCopy: null,
+    pokemonReq: '',
     foundPokemon: null,
     suggestions: null,
     isFound: true,
@@ -55,6 +57,9 @@ export default class PokeList extends Component {
 
   finder = (pokemonReq) => {
     if (pokemonReq) {
+      this.setState({
+        pokemonReq: pokemonReq
+      });
       return this.state.pokemon.filter(pokemon => {
         let length = pokemonReq.length;
         let currPokeSlice = pokemon.name.slice(0, length);
@@ -93,19 +98,30 @@ export default class PokeList extends Component {
     };
   };
 
+  handleChange = (e) => {
+    e.preventDefault();
+    this.setState({
+      pokemonReq: e.target.value
+    });
+  };
+
   render() {
-    const { fetched, loading, suggestions} = this.state;
+    const { state: { fetched, loading, suggestions, pokemon, pokemonReq }, findPokemon, handleChange } = this;
+    let filteredPokemon = pokemon.filter(poke => {
+      return poke.name.toLowerCase().includes(pokemonReq.toLowerCase());
+    });
     if (fetched) {
       return  <div className="container">
                 <div className="row">
-                    <Search findPokemon={this.findPokemon} suggestions={suggestions}/>
-                    {this.createSuggestions()}
+                    <Search findPokemon={findPokemon} handleChange={handleChange} suggestions={suggestions}/>
+                    <SuggestionsList filteredPokemon={filteredPokemon} />
+                    {/*this.createSuggestions()*/}
                   {this.state.isFound ? null : <div className="col-md-12 search-failure">Unable to find this Pokemon! Please try again, or <span className="reset-toggle" onClick={(e) => this.resetList(e)}>click here</span> to reset.</div>}
                 </div>
                 <hr/>
                 <div className="row">
-                  {this.state.pokemon.map(( pokemon, index ) =>
-                    <PokeCard key={index} id={index+1} pokemon={pokemon}/>
+                  {filteredPokemon.map(( pokemon, k ) =>
+                    <PokeCard key={k} id={pokemon.id} pokemon={pokemon}/>
                   )}
                 </div>
               </div>

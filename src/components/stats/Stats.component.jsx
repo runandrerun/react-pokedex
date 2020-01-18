@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StatChart from '../stat-chart/StatChart.component';
-import StrengthContainer from '../containers/strength-container/StrengthContainer.component';
-import WeaknessContainer from '../containers/weakness-container/WeaknessContainer.component';
+import StrengthList from '../strength-list/StrengthList.component';
+import WeaknessList from '../weakness-list/WeaknessList.component';
 import ElementChip from '../element-chip/ElementChip.component';
 import { fetchUniqPokemon } from '../../adapters';
 import './Stats.styles.css';
@@ -62,13 +62,13 @@ export default class Stats extends Component {
   buildStrengthContainer = () => {
     const { types } = this.state;
     if (types) {
-      return <StrengthContainer types={types} />;
+      return <StrengthList types={types} />;
     };
   };
 
   buildWeaknessContainer = () => {
     if (this.state.types) {
-      return <WeaknessContainer types={this.state.types} />;
+      return <WeaknessList types={this.state.types} />;
     };
   };
 

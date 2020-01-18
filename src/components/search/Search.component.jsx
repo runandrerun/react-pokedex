@@ -10,15 +10,15 @@ export default class Search extends Component {
     showSuggestions: false,
   };
 
-  handleChange = (e) => {
-    const { findPokemon } = this.props;
-    e.preventDefault();
-    this.setState({
-      searchValue: e.target.value,
-      showSuggestions: true,
-    }, findPokemon(e.target.value));
-    this.filterSuggestions(e.target.value);
-  };
+  // handleChange = (e) => {
+  //   const { findPokemon } = this.props;
+  //   e.preventDefault();
+  //   this.setState({
+  //     searchValue: e.target.value,
+  //     showSuggestions: true,
+  //   }, findPokemon(e.target.value));
+  //   this.filterSuggestions(e.target.value);
+  // };
 
   handleSubmit = (e) => {
     const { findPokemon } = this.props;
@@ -107,9 +107,9 @@ export default class Search extends Component {
               className = "suggestion-active";
             }
             return <li
-                    key={k}
-                    onClick={handleOnClick}
-                    className={className}
+                      key={k}
+                      onClick={handleOnClick}
+                      className={className}
                     >
                       {suggestion}
                     </li>
@@ -121,7 +121,7 @@ export default class Search extends Component {
 
 
   render() {
-    const { generateSuggestions, onKeyDown, handleChange, props: { suggestions }, state: { searchValue, filteredSuggestions, showSuggestions } } = this;
+    const { generateSuggestions, onKeyDown, props: { suggestions, handleChange }, state: { searchValue, filteredSuggestions, showSuggestions } } = this;
     return (
       <div className="col-md-12 search-buffer search-text">
         <form action="" onSubmit={(e) => this.handleSubmit(e)}>
@@ -129,7 +129,7 @@ export default class Search extends Component {
              <div className="input-group-prepend border-0">
                <button id="search-pokemon" type="button" className="btn btn-link text-info"><i className="fa fa-search search-icon"></i></button>
              </div>
-             <input value={searchValue} onKeyDown={(e) => onKeyDown(e)} onChange={(e) => handleChange(e)} type="search" placeholder="Who are you looking for?" aria-describedby="search-pokemon" className="form-control bg-none border-0"/>
+             <input onKeyDown={(e) => onKeyDown(e)} onChange={(e) => handleChange(e)} type="search" placeholder="Who are you looking for?" aria-describedby="search-pokemon" className="form-control bg-none border-0"/>
            </div>
            {showSuggestions ? generateSuggestions() : null}
          </form>
